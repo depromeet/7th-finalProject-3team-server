@@ -5,19 +5,24 @@ import com.depromeet.watni.domain.group.GroupService;
 import com.depromeet.watni.domain.group.dto.GroupDto;
 import com.depromeet.watni.domain.member.Member;
 import com.depromeet.watni.domain.member.MemberRepository;
-import com.depromeet.watni.domain.member.MemberService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
 public final class SampleData {
-	private final MemberService memberService;
 	private final MemberRepository memberRepository;
 	private final GroupService groupService;
-	
+	private final PasswordEncoder passwordEncoder;
+
 	public Member createMember() {
-		Member member = Member.builder().name("홍길동").build();
+		Member member = Member
+				.builder()
+				.name("홍길동")
+				.email("test@naver.com")
+				.password(passwordEncoder.encode("test"))
+				.build();
 		return memberRepository.save(member);
 	}
 	public Group createGroup() {

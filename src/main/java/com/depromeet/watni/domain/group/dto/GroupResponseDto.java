@@ -1,18 +1,10 @@
 package com.depromeet.watni.domain.group.dto;
 
+import com.depromeet.watni.domain.conference.Conference;
+import lombok.*;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.OneToMany;
-
-import com.depromeet.watni.domain.conference.Conference;
-
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -23,6 +15,7 @@ public class GroupResponseDto {
 
 	private String name;
 
+	@Builder.Default
 	private List<Conference> conferences = new ArrayList<>();
 
 	private String code;

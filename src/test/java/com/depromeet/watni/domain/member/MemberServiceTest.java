@@ -30,6 +30,6 @@ public class MemberServiceTest {
         Assert.assertEquals(member.getEmail(), memberRequestDto.getEmail());
         Assert.assertTrue(memberRequestDto.getPassword().equals(member.getPassword()));
         Assert.assertEquals(member.getName(), memberRequestDto.getName());
-        Assert.assertTrue(member.getId() > 0);
+        Assert.assertTrue(member.getMemberId() > 0);
     }
 }

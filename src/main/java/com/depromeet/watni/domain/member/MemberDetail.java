@@ -21,7 +21,7 @@ public class MemberDetail implements UserDetails {
     // TODO append filed;
 
     public MemberDetail(Member member) {
-        this.memberId = member.getId();
+        this.memberId = member.getMemberId();
         this.email = member.getEmail();
         this.name = member.getName();
         this.password = member.getPassword();
