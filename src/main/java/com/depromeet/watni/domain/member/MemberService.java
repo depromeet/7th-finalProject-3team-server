@@ -1,6 +1,7 @@
 package com.depromeet.watni.domain.member;
 
 import com.depromeet.watni.domain.member.dto.MemberRequestDto;
+import com.depromeet.watni.exception.NotFoundException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -29,6 +30,10 @@ public class MemberService implements UserDetailsService {
                 .build();
         member = memberRepository.save(member);
         return member;
+    }
+
+    public Member getMember(Long memberId) {
+        return memberRepository.findById(memberId).orElseThrow(()-> new NotFoundException("NOT FOUND MEMBER"));
     }
 
 }
